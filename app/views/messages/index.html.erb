@@ -1,0 +1,31 @@
+<div class= "chat">
+
+  <div class= "header">
+   <%= @group.name %>
+    <button type="button" class="back" autofocus="true"><a href= "/groups">グループ一覧へ戻る</a></button>
+  </div>
+
+  <div class= "messages">
+    <% @messages.each do |message| %>  
+      <div class="message">
+        <div class= "user-name"> 
+          <%= message.user.name %>
+          :
+        </div>
+        <div class= "texts">
+        <%= message.content %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+  <div class= "form">
+    <div class= "text">
+      <%= form_with(model: @message, local: true) do |form| %>
+      <%= form.text_field :content, placeholder: "ここにメッセージを入力してください", class: "text-box" %>
+      <%= form.submit "送信", class: "send" %>
+      <% end %>
+    </div>
+  </div>
+</div>
