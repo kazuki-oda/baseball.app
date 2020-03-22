@@ -1,0 +1,12 @@
+      <h2>アカウント編集</h2>
+      <div class="account">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn' %>
+      <%= link_to "トップページに戻る", :back, class: 'btn'%>
+      <div class= "account-page">
+        <%= form_for(current_user) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true %>
+          <%= f.label :email %>
+          <%= f.email_field :email %>  
+        <%= f.submit "Update" %>
+      <% end %>
